@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Car Rentals | Luxury & Supercar Experience in Dubai</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#E6C567',
+                            500: '#D4AF37',
+                            600: '#B89728',
+                            light: '#F5E6AB'
+                        },
+                        dark: {
+                            900: '#070707',
+                            800: '#111111',
+                            700: '#1A1A1A',
+                            600: '#2A2A2A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070707;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F5E6AB 0%, #D4AF37 50%, #B89728 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .gold-border:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+        }
+        .card-glow:hover {
+            box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-900/85 backdrop-blur-md border-b border-dark-600 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center bg-dark-800 group-hover:bg-gold-500 transition-colors duration-300">
+                    <i class="fa-solid fa-crown text-gold-500 group-hover:text-black transition-colors duration-300 text-sm"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg font-serif font-bold tracking-widest text-white">PRESTIGE</span>
+                    <span class="text-[9px] tracking-[0.35em] text-gold-500 font-medium">CAR RENTALS DUBAI</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-widest">
+                <a href="#fleet" class="text-gray-300 hover:text-gold-500 transition-colors">FLEET</a>
+                <a href="#calculator" class="text-gray-300 hover:text-gold-500 transition-colors">CALCULATOR</a>
+                <a href="#services" class="text-gray-300 hover:text-gold-500 transition-colors">SERVICES</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-gold-500 transition-colors">TESTIMONIALS</a>
+                <a href="#contact" class="text-gray-300 hover:text-gold-500 transition-colors">CONTACT</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#fleet" class="px-5 py-2.5 bg-gradient-to-r from-gold-600 to-gold-400 text-black text-xs font-bold uppercase tracking-wider rounded-xl hover:opacity-95 shadow-lg shadow-gold-500/20 transition-all">
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gold-500 text-xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-dark-600 px-6 py-6 space-y-4">
+            <a href="#fleet" class="block text-gray-300 hover:text-gold-500 text-xs font-semibold tracking-widest mobile-link">FLEET</a>
+            <a href="#calculator" class="block text-gray-300 hover:text-gold-500 text-xs font-semibold tracking-widest mobile-link">CALCULATOR</a>
+            <a href="#services" class="block text-gray-300 hover:text-gold-500 text-xs font-semibold tracking-widest mobile-link">SERVICES</a>
+            <a href="#testimonials" class="block text-gray-300 hover:text-gold-500 text-xs font-semibold tracking-widest mobile-link">TESTIMONIALS</a>
+            <a href="#contact" class="block text-gray-300 hover:text-gold-500 text-xs font-semibold tracking-widest mobile-link">CONTACT</a>
+            <div class="pt-4 border-t border-dark-600">
+                <a href="#fleet" class="block w-full text-center px-4 py-3 bg-gold-500 text-black font-bold text-xs uppercase tracking-wider rounded-xl mobile-link">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=2070&auto=format&fit=crop" alt="Dubai Supercar Rental" class="w-full h-full object-cover object-center filter brightness-45 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-dark-900 via-transparent to-dark-900"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 mb-6">
+                <i class="fa-solid fa-location-dot text-gold-500 text-xs"></i>
+                <span class="text-xs uppercase tracking-[0.25em] text-gold-light font-semibold">Downtown & Airport Delivery in Dubai</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white tracking-tight leading-tight mb-6">
+                Experience Ultimate Luxury & <span class="gold-gradient-text">Performance</span> in Dubai
+            </h1>
+            <p class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Command the iconic boulevards of Sheikh Zayed Road and the Burj Al Arab with our elite fleet of hypercars, supercars, and ultra-luxury SUVs.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#fleet" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-600 to-gold-400 text-black font-bold text-xs uppercase tracking-wider rounded-xl hover:opacity-95 shadow-xl shadow-gold-500/20 transition-all flex items-center justify-center space-x-3">
+                    <span>Explore Fleet</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 bg-dark-800/80 hover:bg-dark-700 text-white border border-gold-500/40 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm transition-all flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-calculator text-gold-500"></i>
+                    <span>Instant Price Calculator</span>
+                </a>
+            </div>
+
+            <!-- Quick Booking Bar Widget -->
+            <div class="mt-16 bg-dark-800/90 border border-gold-500/30 p-4 sm:p-6 rounded-3xl backdrop-blur-md grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gold-500 mb-1">Pick-up Location</label>
+                    <select id="hero-pickup" class="w-full bg-dark-900 border gold-border rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
+                        <option>Dubai International Airport (DXB)</option>
+                        <option>Downtown Dubai / Burj Khalifa</option>
+                        <option>Dubai Marina / JBR</option>
+                        <option>Palm Jumeirah Hotel Delivery</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gold-500 mb-1">Rental Dates</label>
+                    <input type="text" value="Today - 3 Days" readonly class="w-full bg-dark-900 border gold-border rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none cursor-pointer">
+                </div>
+                <div class="flex items-end">
+                    <a href="#fleet" class="w-full py-2.5 bg-gold-500 hover:bg-gold-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center space-x-2">
+                        <span>Select Vehicle</span>
+                        <i class="fa-solid fa-car"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fleet" class="py-24 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold block mb-3">Masterpiece Stable</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Our Elite Dubai Fleet</h2>
+                <p class="text-gray-400 font-light text-sm">Choose from world-class engineering, delivered with a full tank and impeccable white-glove service.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+                <button class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-gold-500 text-black shadow-md" data-filter="all">All Vehicles</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-dark-700 text-gray-300 hover:bg-dark-600 hover:text-white" data-filter="supercar">Supercars & Hypercars</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-dark-700 text-gray-300 hover:bg-dark-600 hover:text-white" data-filter="suv">Luxury SUVs</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-dark-700 text-gray-300 hover:bg-dark-600 hover:text-white" data-filter="sedan">Ultra Luxury Sedans</button>
+            </div>
+
+            <!-- Fleet Grid -->
+            <div id="fleet-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Car 1: Lamborghini Revuelto -->
+                <div class="car-card bg-dark-900 border border-dark-600 rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="supercar" data-name="Lamborghini Revuelto V12" data-price="4500" data-img="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1000&auto=format&fit=crop">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1000&auto=format&fit=crop" alt="Lamborghini Revuelto" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/1A1A1A/D4AF37?text=Lamborghini'">
+                        <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/40 text-gold-500 text-xs font-semibold">
+                            Supercar
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+                            <span class="text-gold-500 font-bold">AED 4,500</span> / day
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-2">Lamborghini Revuelto V12</h3>
+                            <p class="text-gray-400 text-xs font-light mb-4">The groundbreaking V12 plug-in hybrid masterpiece delivering 1,015 horsepower of pure adrenaline.</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-dark-600 mb-6 text-center">
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Power</div>
+                                    <div class="text-xs font-semibold text-white">1,015 HP</div>
+                                </div>
+                                <div class="border-x border-dark-600">
+                                    <div class="text-[10px] text-gray-500 uppercase">0-100 km/h</div>
+                                    <div class="text-xs font-semibold text-white">2.5s</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Top Speed</div>
+                                    <div class="text-xs font-semibold text-white">350 km/h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('Lamborghini Revuelto V12', 4500, 'https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=1000&auto=format&fit=crop')" class="w-full py-3 bg-dark-700 hover:bg-gold-500 text-gold-500 hover:text-black font-semibold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 border border-gold-500/30 flex items-center justify-center space-x-2">
+                            <span>Rent Now</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Car 2: Rolls-Royce Cullinan -->
+                <div class="car-card bg-dark-900 border border-dark-600 rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="suv" data-name="Rolls-Royce Cullinan Black Badge" data-price="4000" data-img="https://images.unsplash.com/photo-1631295868223-632ab5b46f23?q=80&w=1000&auto=format&fit=crop">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1631295868223-632ab5b46f23?q=80&w=1000&auto=format&fit=crop" alt="Rolls-Royce Cullinan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/1A1A1A/D4AF37?text=Rolls-Royce'">
+                        <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/40 text-gold-500 text-xs font-semibold">
+                            Luxury SUV
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+                            <span class="text-gold-500 font-bold">AED 4,000</span> / day
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-2">Rolls-Royce Cullinan</h3>
+                            <p class="text-gray-400 text-xs font-light mb-4">The ultimate expression of super-luxury utility. Unrivaled majesty on Dubai's coastal highways.</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-dark-600 mb-6 text-center">
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Power</div>
+                                    <div class="text-xs font-semibold text-white">591 HP</div>
+                                </div>
+                                <div class="border-x border-dark-600">
+                                    <div class="text-[10px] text-gray-500 uppercase">0-100 km/h</div>
+                                    <div class="text-xs font-semibold text-white">4.9s</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Top Speed</div>
+                                    <div class="text-xs font-semibold text-white">250 km/h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('Rolls-Royce Cullinan', 4000, 'https://images.unsplash.com/photo-1631295868223-632ab5b46f23?q=80&w=1000&auto=format&fit=crop')" class="w-full py-3 bg-dark-700 hover:bg-gold-500 text-gold-500 hover:text-black font-semibold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 border border-gold-500/30 flex items-center justify-center space-x-2">
+                            <span>Rent Now</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Car 3: Ferrari SF90 Stradale -->
+                <div class="car-card bg-dark-900 border border-dark-600 rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="supercar" data-name="Ferrari SF90 Stradale" data-price="4800" data-img="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000&auto=format&fit=crop">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000&auto=format&fit=crop" alt="Ferrari SF90" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/1A1A1A/D4AF37?text=Ferrari'">
+                        <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/40 text-gold-500 text-xs font-semibold">
+                            Supercar
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+                            <span class="text-gold-500 font-bold">AED 4,800</span> / day
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-2">Ferrari SF90 Stradale</h3>
+                            <p class="text-gray-400 text-xs font-light mb-4">Formula 1 hybrid technology adapted for the road. Breathtaking acceleration and aerodynamic poise.</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-dark-600 mb-6 text-center">
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Power</div>
+                                    <div class="text-xs font-semibold text-white">986 HP</div>
+                                </div>
+                                <div class="border-x border-dark-600">
+                                    <div class="text-[10px] text-gray-500 uppercase">0-100 km/h</div>
+                                    <div class="text-xs font-semibold text-white">2.5s</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Top Speed</div>
+                                    <div class="text-xs font-semibold text-white">340 km/h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('Ferrari SF90 Stradale', 4800, 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000&auto=format&fit=crop')" class="w-full py-3 bg-dark-700 hover:bg-gold-500 text-gold-500 hover:text-black font-semibold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 border border-gold-500/30 flex items-center justify-center space-x-2">
+                            <span>Rent Now</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Car 4: Mercedes-AMG G63 -->
+                <div class="car-card bg-dark-900 border border-dark-600 rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="suv" data-name="Mercedes-AMG G63" data-price="2500" data-img="https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=1000&auto=format&fit=crop">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=1000&auto=format&fit=crop" alt="Mercedes AMG G63" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/1A1A1A/D4AF37?text=Mercedes+G63'">
+                        <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/40 text-gold-500 text-xs font-semibold">
+                            Luxury SUV
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+                            <span class="text-gold-500 font-bold">AED 2,500</span> / day
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-2">Mercedes-AMG G63</h3>
+                            <p class="text-gray-400 text-xs font-light mb-4">The definitive Dubai favorite. Handcrafted V8 biturbo power with unmistakable road presence.</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-dark-600 mb-6 text-center">
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Power</div>
+                                    <div class="text-xs font-semibold text-white">577 HP</div>
+                                </div>
+                                <div class="border-x border-dark-600">
+                                    <div class="text-[10px] text-gray-500 uppercase">0-100 km/h</div>
+                                    <div class="text-xs font-semibold text-white">4.5s</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Top Speed</div>
+                                    <div class="text-xs font-semibold text-white">220 km/h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('Mercedes-AMG G63', 2500, 'https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=1000&auto=format&fit=crop')" class="w-full py-3 bg-dark-700 hover:bg-gold-500 text-gold-500 hover:text-black font-semibold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 border border-gold-500/30 flex items-center justify-center space-x-2">
+                            <span>Rent Now</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Car 5: Porsche 911 GT3 RS -->
+                <div class="car-card bg-dark-900 border border-dark-600 rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="supercar" data-name="Porsche 911 GT3 RS" data-price="3500" data-img="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1000&auto=format&fit=crop">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1000&auto=format&fit=crop" alt="Porsche 911 GT3 RS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/1A1A1A/D4AF37?text=Porsche+GT3+RS'">
+                        <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/40 text-gold-500 text-xs font-semibold">
+                            Supercar
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+                            <span class="text-gold-500 font-bold">AED 3,500</span> / day
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-2">Porsche 911 GT3 RS</h3>
+                            <p class="text-gray-400 text-xs font-light mb-4">Pure track precision built for the road. Massive active aerodynamics and high-revving naturally aspirated flat-six.</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-dark-600 mb-6 text-center">
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Power</div>
+                                    <div class="text-xs font-semibold text-white">518 HP</div>
+                                </div>
+                                <div class="border-x border-dark-600">
+                                    <div class="text-[10px] text-gray-500 uppercase">0-100 km/h</div>
+                                    <div class="text-xs font-semibold text-white">3.2s</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Top Speed</div>
+                                    <div class="text-xs font-semibold text-white">296 km/h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('Porsche 911 GT3 RS', 3500, 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1000&auto=format&fit=crop')" class="w-full py-3 bg-dark-700 hover:bg-gold-500 text-gold-500 hover:text-black font-semibold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 border border-gold-500/30 flex items-center justify-center space-x-2">
+                            <span>Rent Now</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Car 6: Mercedes-Maybach S-Class -->
+                <div class="car-card bg-dark-900 border border-dark-600 rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="sedan" data-name="Mercedes-Maybach S680" data-price="2800" data-img="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop" alt="Maybach S-Class" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/1A1A1A/D4AF37?text=Maybach'">
+                        <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/40 text-gold-500 text-xs font-semibold">
+                            Ultra Luxury Sedan
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-medium">
+                            <span class="text-gold-500 font-bold">AED 2,800</span> / day
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white mb-2">Mercedes-Maybach S680</h3>
+                            <p class="text-gray-400 text-xs font-light mb-4">First-class cabin luxury with an imposing V12 engine. Perfect for executive transport and VIP arrivals.</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-dark-600 mb-6 text-center">
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Power</div>
+                                    <div class="text-xs font-semibold text-white">621 HP</div>
+                                </div>
+                                <div class="border-x border-dark-600">
+                                    <div class="text-[10px] text-gray-500 uppercase">0-100 km/h</div>
+                                    <div class="text-xs font-semibold text-white">4.5s</div>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-gray-500 uppercase">Top Speed</div>
+                                    <div class="text-xs font-semibold text-white">250 km/h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('Mercedes-Maybach S680', 2800, 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop')" class="w-full py-3 bg-dark-700 hover:bg-gold-500 text-gold-500 hover:text-black font-semibold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 border border-gold-500/30 flex items-center justify-center space-x-2">
+                            <span>Rent Now</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-dark-900 relative border-y border-dark-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold block mb-3">Transparent Estimator</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-3">Interactive Rental Calculator</h2>
+                <p class="text-gray-400 text-xs font-light">Customize your rental parameters and add-ons for an instant quote in AED.</p>
+            </div>
+
+            <div class="bg-dark-800 border border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Select Vehicle</label>
+                        <select id="calc-car" onchange="updateCalculator()" class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none">
+                            <option value="4500">Lamborghini Revuelto V12 (AED 4,500/day)</option>
+                            <option value="4000">Rolls-Royce Cullinan (AED 4,000/day)</option>
+                            <option value="4800">Ferrari SF90 Stradale (AED 4,800/day)</option>
+                            <option value="2500">Mercedes-AMG G63 (AED 2,500/day)</option>
+                            <option value="3500">Porsche 911 GT3 RS (AED 3,500/day)</option>
+                            <option value="2800">Mercedes-Maybach S680 (AED 2,800/day)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Rental Duration (Days)</label>
+                        <input type="number" id="calc-days" value="3" min="1" max="90" oninput="updateCalculator()" class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none">
+                    </div>
+                </div>
+
+                <!-- Optional Add-ons -->
+                <div class="mb-8">
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-3">VIP Add-on Packages</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <label class="flex items-center space-x-3 bg-dark-900 border border-dark-600 p-4 rounded-xl cursor-pointer hover:border-gold-500/50 transition-colors">
+                            <input type="checkbox" id="addon-chauffeur" value="500" onchange="updateCalculator()" class="accent-gold-500 w-4 h-4">
+                            <div>
+                                <div class="text-white text-xs font-semibold">Chauffeur Service</div>
+                                <div class="text-[10px] text-gold-500">+AED 500 / day</div>
+                            </div>
+                        </label>
+                        <label class="flex items-center space-x-3 bg-dark-900 border border-dark-600 p-4 rounded-xl cursor-pointer hover:border-gold-500/50 transition-colors">
+                            <input type="checkbox" id="addon-insurance" value="300" onchange="updateCalculator()" class="accent-gold-500 w-4 h-4" checked>
+                            <div>
+                                <div class="text-white text-xs font-semibold">Full Coverage Insurance</div>
+                                <div class="text-[10px] text-gold-500">+AED 300 / day</div>
+                            </div>
+                        </label>
+                        <label class="flex items-center space-x-3 bg-dark-900 border border-dark-600 p-4 rounded-xl cursor-pointer hover:border-gold-500/50 transition-colors">
+                            <input type="checkbox" id="addon-airport" value="200" onchange="updateCalculator()" class="accent-gold-500 w-4 h-4">
+                            <div>
+                                <div class="text-white text-xs font-semibold">Airport VIP Delivery</div>
+                                <div class="text-[10px] text-gold-500">+AED 200 flat</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Total Box -->
+                <div class="bg-dark-900 border border-dark-600 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Estimated Total Rate (<span id="calc-days-label">3</span> days + add-ons)</div>
+                        <div class="text-[10px] text-gold-500">Includes 5% VAT & Free delivery within Dubai</div>
+                    </div>
+                    <div class="text-center sm:text-right">
+                        <div id="calc-total" class="text-3xl font-serif font-bold text-white">AED 15,300</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold block mb-3">Absolute Privilege</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Our Exclusive Services</h2>
+                <p class="text-gray-400 font-light text-sm">Designed for high-profile individuals, royal entourages, and executive corporate delegations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-dark-900 border border-dark-600 p-8 rounded-2xl hover:border-gold-500/50 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl mb-6">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Chauffeur Services</h3>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed">Professional, multilingual security chauffeurs trained in executive transit and discrete VIP routing.</p>
+                </div>
+
+                <div class="bg-dark-900 border border-dark-600 p-8 rounded-2xl hover:border-gold-500/50 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl mb-6">
+                        <i class="fa-solid fa-plane-arrival"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Airport FBO Transfers</h3>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed">Direct tarmac and private jet terminal (FBO) coordination at DXB and DWC airports.</p>
+                </div>
+
+                <div class="bg-dark-900 border border-dark-600 p-8 rounded-2xl hover:border-gold-500/50 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl mb-6">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">24/7 VIP Delivery</h3>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed">Instant white-glove vehicle delivery and collection at any hotel, villa, or yacht marina in Dubai.</p>
+                </div>
+
+                <div class="bg-dark-900 border border-dark-600 p-8 rounded-2xl hover:border-gold-500/50 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl mb-6">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-white mb-2">Corporate Leasing</h3>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed">Long-term luxury fleet packages for corporate executives, multinational firms, and film crews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold block mb-3">Client Endorsements</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Trusted by Connoisseurs</h2>
+                <p class="text-gray-400 font-light text-sm">Read words from our distinguished international clients visiting Dubai.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark-800 border border-dark-600 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-gold-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-xs font-light italic mb-6 leading-relaxed">"Renting the Lamborghini Revuelto was the highlight of my trip to Dubai. The car was brand new, pristine condition, and delivered right to my suite at Burj Al Arab."</p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-dark-600">
+                        <div class="w-9 h-9 rounded-full bg-gold-500/20 text-gold-500 flex items-center justify-center font-bold text-xs">
+                            KM
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-xs">Karim M.</h4>
+                            <p class="text-[10px] text-gold-500">London, UK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-800 border border-dark-600 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-gold-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-xs font-light italic mb-6 leading-relaxed">"Prestige provides unmatched professionalism. Their Rolls-Royce Cullinan made our business delegation meetings seamless and extremely comfortable."</p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-dark-600">
+                        <div class="w-9 h-9 rounded-full bg-gold-500/20 text-gold-500 flex items-center justify-center font-bold text-xs">
+                            AS
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-xs">Aisha Al-Suwaidi</h4>
+                            <p class="text-[10px] text-gold-500">Abu Dhabi, UAE</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-800 border border-dark-600 p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-gold-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-xs font-light italic mb-6 leading-relaxed">"The booking calculator was transparent, no hidden fees, and the Ferrari SF90 was an absolute monster on the highway. Will exclusively use Prestige."</p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-dark-600">
+                        <div class="w-9 h-9 rounded-full bg-gold-500/20 text-gold-500 flex items-center justify-center font-bold text-xs">
+                            JD
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-xs">Julian Dupont</h4>
+                            <p class="text-[10px] text-gold-500">Paris, France</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark-800 border-t border-dark-600 pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full border border-gold-500 flex items-center justify-center bg-dark-900">
+                            <i class="fa-solid fa-crown text-gold-500 text-xs"></i>
+                        </div>
+                        <span class="text-base font-serif font-bold tracking-widest text-white">PRESTIGE</span>
+                    </div>
+                    <p class="text-gray-400 text-xs font-light leading-relaxed">
+                        Dubai's premier luxury and supercar rental company. Delivering uncompromising automotive excellence since 2018.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs uppercase tracking-widest font-semibold mb-4">Dubai Office</h4>
+                    <p class="text-gray-400 text-xs font-light mb-2"><i class="fa-solid fa-location-dot text-gold-500 mr-2"></i> Sheikh Zayed Road, Al Quoz 1, Dubai, UAE</p>
+                    <p class="text-gray-400 text-xs font-light mb-2"><i class="fa-solid fa-phone text-gold-500 mr-2"></i> +971 4 555 7890</p>
+                    <p class="text-gray-400 text-xs font-light"><i class="fa-solid fa-envelope text-gold-500 mr-2"></i> vip@prestigedubai.ae</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs uppercase tracking-widest font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#fleet" class="hover:text-gold-500 transition-colors">Supercars Collection</a></li>
+                        <li><a href="#calculator" class="hover:text-gold-500 transition-colors">Rental Calculator</a></li>
+                        <li><a href="#services" class="hover:text-gold-500 transition-colors">Chauffeur & Airport FBO</a></li>
+                        <li><a href="#testimonials" class="hover:text-gold-500 transition-colors">Client Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs uppercase tracking-widest font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 text-xs font-light mb-4">Subscribe for private supercar arrivals and VIP weekend rates.</p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                        <input type="email" required placeholder="Your email address" class="w-full bg-dark-900 border gold-border rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
+                        <button type="submit" class="w-full py-2.5 bg-gold-500 hover:bg-gold-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-all">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-dark-600 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <div>&copy; 2026 Prestige Car Rentals Dubai LLC. All rights reserved.</div>
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto">
+        <div class="bg-dark-800 border border-gold-500/40 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl my-8">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center space-x-4 mb-6">
+                <img id="modal-car-img" src="" alt="Car" class="w-20 h-20 object-cover rounded-xl border border-gold-500/30">
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold">VIP Reservation Request</span>
+                    <h3 id="modal-car-title" class="text-xl font-serif font-bold text-white">Vehicle Name</h3>
+                    <div class="text-xs text-gray-400">Rate: <span id="modal-car-rate" class="text-gold-500 font-semibold">AED 0</span> / day</div>
+                </div>
+            </div>
+
+            <form id="reservation-form" onsubmit="handleReservationSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Pick-up Date</label>
+                        <input type="date" id="pickup-date" required onchange="calculateModalTotal()" class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Return Date</label>
+                        <input type="date" id="return-date" required onchange="calculateModalTotal()" class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Full Name</label>
+                        <input type="text" required class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none" placeholder="Mr. Hamdan Al-Maktoum">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Phone / WhatsApp</label>
+                        <input type="tel" required class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none" placeholder="+971 50 123 4567">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Delivery Location in Dubai</label>
+                    <input type="text" required class="w-full bg-dark-900 border gold-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none" placeholder="Burj Al Arab, Palm Jumeirah, or DXB Terminal 3">
+                </div>
+
+                <div class="bg-dark-900 border border-dark-600 rounded-2xl p-4 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-gray-400">Duration: <span id="modal-rental-days" class="text-white font-bold">1</span> day(s)</div>
+                        <div class="text-[10px] text-gray-500">Includes full insurance & drop-off</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs uppercase text-gold-500 font-semibold">Total Estimate</div>
+                        <div id="modal-total-price" class="text-2xl font-serif font-bold text-white">AED 0</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-600 to-gold-400 text-black font-bold uppercase tracking-wider text-xs rounded-xl hover:opacity-95 transition-all shadow-lg shadow-gold-500/20 flex items-center justify-center space-x-2">
+                    <span>Confirm Reservation</span>
+                    <i class="fa-solid fa-check"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Message Modal (No alert/confirm) -->
+    <div id="msg-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div class="bg-dark-800 border border-gold-500/40 rounded-3xl max-w-md w-full p-6 text-center relative shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-500 text-2xl mx-auto mb-4">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <h3 id="msg-title" class="text-xl font-serif font-bold text-white mb-2">Success</h3>
+            <p id="msg-text" class="text-gray-300 text-sm font-light mb-6">Your request has been received.</p>
+            <button onclick="closeMsgModal()" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Navbar mobile toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fleet Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const carCards = document.querySelectorAll('.car-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold-500', 'text-black', 'shadow-md');
+                    b.classList.add('bg-dark-700', 'text-gray-300');
+                });
+                btn.classList.remove('bg-dark-700', 'text-gray-300');
+                btn.classList.add('bg-gold-500', 'text-black', 'shadow-md');
+
+                const filter = btn.getAttribute('data-filter');
+                carCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Interactive Rental Calculator
+        function updateCalculator() {
+            const carPrice = parseInt(document.getElementById('calc-car').value);
+            const days = parseInt(document.getElementById('calc-days').value) || 1;
+            document.getElementById('calc-days-label').innerText = days;
+
+            let addOnsTotal = 0;
+            if (document.getElementById('addon-chauffeur').checked) addOnsTotal += 500;
+            if (document.getElementById('addon-insurance').checked) addOnsTotal += 300;
+            if (document.getElementById('addon-airport').checked) addOnsTotal += 200; // flat fee
+
+            const total = (carPrice * days) + addOnsTotal;
+            document.getElementById('calc-total').innerText = 'AED ' + total.toLocaleString();
+        }
+        window.addEventListener('DOMContentLoaded', updateCalculator);
+
+        // Booking Modal Logic
+        let currentModalRate = 0;
+
+        function openBookingModal(carName, rate, imgSrc) {
+            currentModalRate = rate;
+            document.getElementById('modal-car-title').innerText = carName;
+            document.getElementById('modal-car-rate').innerText = 'AED ' + rate.toLocaleString();
+            document.getElementById('modal-car-img').src = imgSrc;
+
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 3);
+
+            document.getElementById('pickup-date').valueAsDate = today;
+            document.getElementById('return-date').valueAsDate = tomorrow;
+
+            calculateModalTotal();
+            document.getElementById('booking-modal').classList.remove('hidden');
+            document.getElementById('booking-modal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+            document.getElementById('booking-modal').classList.remove('flex');
+        }
+
+        function calculateModalTotal() {
+            const pickup = new Date(document.getElementById('pickup-date').value);
+            const returnDate = new Date(document.getElementById('return-date').value);
+
+            let diffTime = returnDate - pickup;
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if (isNaN(diffDays) || diffDays < 1) diffDays = 1;
+
+            document.getElementById('modal-rental-days').innerText = diffDays;
+            const total = diffDays * currentModalRate;
+            document.getElementById('modal-total-price').innerText = 'AED ' + total.toLocaleString();
+        }
+
+        // Custom Message Box
+        function showMsg(title, text) {
+            document.getElementById('msg-title').innerText = title;
+            document.getElementById('msg-text').innerText = text;
+            document.getElementById('msg-modal').classList.remove('hidden');
+            document.getElementById('msg-modal').classList.add('flex');
+        }
+
+        function closeMsgModal() {
+            document.getElementById('msg-modal').classList.add('hidden');
+            document.getElementById('msg-modal').classList.remove('flex');
+        }
+
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            showMsg('Reservation Confirmed', 'Thank you. Our Dubai VIP concierge team will reach out via WhatsApp and phone within 15 minutes to finalize delivery.');
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            e.target.reset();
+            showMsg('Subscribed Successfully', 'Welcome to Prestige Car Rentals Dubai. You will receive private supercar availability notices.');
+        }
+    </script>
+</body>
+</html>
